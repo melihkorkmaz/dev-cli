@@ -2,6 +2,7 @@ import type { Arguments, CommandBuilder } from 'yargs';
 import axios from 'axios';
 import simpleGit from 'simple-git';
 import fs from 'fs';
+import path from 'path';
 var List = require('prompt-list');
 
 const git = simpleGit();
@@ -11,7 +12,7 @@ type Options = {
 };
 
 const getConfigs = () => {
-  let rawConfig = fs.readFileSync('../config.json', 'utf8');
+  let rawConfig = fs.readFileSync(path.join(__dirname, '../', 'config.json'), 'utf8');
   return JSON.parse(rawConfig);
 };
 
